@@ -6,7 +6,7 @@ library(car)
 library(lmtest)
 
 # Leer el archivo Excel
-data <- read_excel("ruta_del_archivo")
+data <- read_excel("/Users/adjanyarmenta/Downloads/BD_Sede-LC (2).xlsx")
 
 # Filtrar los datos para cada sede
 x_data <- data$`#LC`[data$Sede == "x"]
@@ -43,6 +43,14 @@ shapiro_test_y <- shapiro.test(y_data)
 
 print(shapiro_test_x)
 print(shapiro_test_y)
+
+# Gráfico de Mérida
+qqnorm(x_data, main="Q-Q Plot de Mérida")
+qqline(x_data, col="red")
+
+#Gráfico de Valladolid
+qqnorm(y_data, main="Q-Q Plot de Valladolid")
+qqline(y_data, col="red")
 
 
 # Prueba de homocedasticidad (prueba de Levene)
